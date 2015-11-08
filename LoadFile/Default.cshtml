@@ -1,0 +1,39 @@
+﻿@using System.IO;
+@using System.Text;
+@{
+string[] fullfilesPath = Directory.GetFiles(Server.MapPath("App_Data/UploadedFiles/"), "*.csv");  
+string cssPath = Server.MapPath("App_Data/CSS/");
+cssPath +="StyleSheet.css";
+StreamReader sr = new StreamReader(fullfilesPath[0], Encoding.GetEncoding("windows-1251"));
+   string res ="";
+  string line;
+  while ((line = sr.ReadLine()) != null)
+  {                      
+   
+    res += line;
+  }
+}
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+    <link rel="stylesheet" type="text/css" href="/CSS/StyleSheet.css?2">
+        <title></title>
+    </head>
+    <body>
+        <div class="center">
+            <div class="credit" ><img class="imgcredit" src="/Image/credit.png" alt=""></div>
+            <div class="card" ><img class="imgcard" src="/Image/card.png" alt=""></div>
+            <div class="client" ><img class="imgclient" src="/Image/client.png" alt=""></div>
+            <div class="activeClient" ><img class="imgactive" src="/Image/activeClient.png" alt=""></div>
+            <div class="text creditText" >ВЫДАННЫХ<br>КРЕДИТОВ,<br>РУБ.</div>
+            <div class="text creditText2" >ВЫПОЛНЕНИЕ<br>ПЛАНА<br>ЗА МЕСЯЦ</div>
+            <div class="text cardText2" >ВЫПОЛНЕНИЕ<br>ПЛАНА<br>ЗА МЕСЯЦ</div>
+            <div class="text cardText" >ВЫДАННЫХ<br>"КАРТА № 1",<br>ШТ.</div>
+            <div class="text clientText" >КЛИЕНТОВ БАНКА</div>
+            <div class="text activeClientText" >АКТИВНЫХ ЗАЕМЩИКОВ</div>
+        </div>     
+        
+    </body>
+</html>
